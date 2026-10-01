@@ -152,7 +152,7 @@ h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
 .card .go { margin-top: auto; padding-top: 0.9rem; font-weight: 600; color: var(--accent-text); font-size: 0.95rem; }
 .note { margin-top: 1rem; padding: 1rem 1.3rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .legacy { padding: clamp(1.6rem, 4vw, 2.6rem); text-align: center; }
-.legacy h2 { margin-bottom: 0.8rem; }
+.legacy h2 { margin-bottom: 0.8rem; overflow-wrap: anywhere; }
 .legacy p { max-width: 620px; margin: 0 auto 1.2rem; color: var(--ink-2); }
 
 /* FAQ: native details, smooth enough and accessible */
@@ -180,12 +180,15 @@ html[lang="en"] .zh-only { display: none; }
   .grid.three { grid-template-columns: repeat(2, 1fr); }
 }
 /* phone */
-@media (max-width: 760px) {
-  body { font-size: 16px; }
+/* menu button wherever the seven section links don't fit in one row (tablets, phones in landscape) */
+@media (max-width: 1080px) {
   .menu-btn { display: block; }
   .links { position: fixed; top: calc(58px + env(safe-area-inset-top)); left: 0.75rem; right: 0.75rem; flex-direction: column; gap: 0; padding: 0.5rem; background: var(--glass); -webkit-backdrop-filter: saturate(180%) blur(24px); backdrop-filter: saturate(180%) blur(24px); border: 1px solid var(--glass-line); border-radius: 20px; box-shadow: var(--shadow); opacity: 0; transform: translateY(-8px) scale(.98); pointer-events: none; transition: opacity .2s, transform .2s; }
   .links.open { opacity: 1; transform: none; pointer-events: auto; }
   .links a { padding: 0.85rem 1rem; font-size: 1.02rem; }
+}
+@media (max-width: 760px) {
+  body { font-size: 16px; }
   .nav-actions .pill:not(.ghost) { display: none; }
   .hero { padding-top: 3.5rem; }
   .facts { grid-template-columns: repeat(2, 1fr); }
@@ -252,7 +255,37 @@ html[lang="en"] .zh-only { display: none; }
 
 /* the second half of the title ("A new chapter" / "新篇章") always stays together on one line */
 .reveal-title .grad { display: inline-block; white-space: nowrap; }
-html[lang="en"] .hero h1 { font-size: clamp(2.5rem, 10.5vw, 6.2rem); }
+html[lang="en"] .hero h1 { font-size: clamp(2.1rem, 10.5vw, 6.2rem); }
 /* English: two deliberate lines, "Genesis" / "A new chapter" (no dangling dot) */
 html[lang="en"] .reveal-title .dot { display: none; }
 html[lang="en"] .reveal-title .grad { display: block; }
+
+/* ---------- OniU and support ---------- */
+[hidden] { display: none !important; } /* a component's own display rule must never show a hidden element */
+.app-feature { padding: clamp(1.6rem, 4vw, 2.6rem); display: grid; grid-template-columns: 1fr auto; gap: 1.2rem 2rem; align-items: center; }
+.app-feature h2 { margin-bottom: 0.8rem; }
+.app-feature p { color: var(--ink-2); max-width: 680px; }
+.app-points { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; color: var(--ink-2); font-size: 0.97rem; }
+.app-points li::before { content: "✓"; color: var(--accent-text); font-weight: 700; margin-right: 0.55rem; }
+.support .card { gap: 0.6rem; }
+.allow-copy, .allow-copy *, input { -webkit-touch-callout: default; user-select: text; -webkit-user-select: text; }
+.copy-row, .kv { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; padding: 0.7rem 0.8rem; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); }
+.copy-row code, .kv code { font: 600 0.95rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; flex: 1 1 14rem; min-width: 0; }
+.kv { display: grid; grid-template-columns: 1fr auto; }
+.kv .k { grid-column: 1 / -1; font-size: 0.8rem; color: var(--muted); }
+.kv code[data-unit]::after { content: " " attr(data-unit); color: var(--muted); font-weight: 400; }
+.buy-form { display: grid; gap: 0.45rem; margin-top: 0.4rem; }
+.buy-form label { font-size: 0.88rem; font-weight: 600; margin-top: 0.3rem; }
+.buy-form input { font: 1rem/1.4 inherit; font-family: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 0.75rem 0.85rem; min-height: 48px; width: 100%; }
+.buy-form input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+.buy-form .btn { margin-top: 0.5rem; }
+.buy-form .btn:disabled { opacity: .6; cursor: progress; }
+.form-msg:empty { display: none; }
+.form-msg.bad, .order .warn { color: #c0262d; }
+@media (prefers-color-scheme: dark) { .form-msg.bad, .order .warn { color: #ff8a8a; } }
+.order { display: grid; gap: 0.55rem; margin-top: 0.4rem; }
+.order-status { font-weight: 700; }
+.order-status.st-sent { color: #1f8a3c; }
+@media (prefers-color-scheme: dark) { .order-status.st-sent { color: #4ade80; } }
+.order-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+@media (max-width: 760px) { .app-feature { grid-template-columns: 1fr; } .app-feature .btn { justify-self: start; } }

@@ -13,12 +13,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tokel">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://explorer.tokel.io; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://explorer.tokel.io https://app.oniu.uk; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
-<link rel="stylesheet" href="styles.css?v=202610011227">
+<link rel="stylesheet" href="styles.css?v=202610011700">
 </head>
 <body>
 
@@ -32,6 +32,8 @@
     <a href="#holders" data-i18n="navHolders">For holders</a>
     <a href="#why" data-i18n="navWhy">Why Tokel</a>
     <a href="#start" data-i18n="navStart">Get started</a>
+    <a href="#oniu" data-i18n="navApp">OniU</a>
+    <a href="#support" data-i18n="navSupport">Support</a>
     <a href="#faq" data-i18n="navFaq">FAQ</a>
   </nav>
   <div class="nav-actions">
@@ -138,7 +140,7 @@
     </div>
     <div class="safety glass" role="note">
       <strong data-i18n="safeTitle">Stay safe</strong>
-      <p data-i18n="safeText">Tokel Genesis will never ask for your seed phrase or private keys, and there is no "migration", "claim" or "airdrop". The only official places are this website, TokelGenesis on GitHub, and imperialtokel@gmail.com.</p>
+      <p data-i18n="safeText">Tokel Genesis will never ask for your seed phrase or private keys, and there is no "migration", "claim" or "airdrop". The only official places are this website, TokelGenesis on GitHub, the OniU app (app.oniu.uk) and imperialtokel@gmail.com.</p>
     </div>
     <div class="note glass">
       <span data-i18n="holdersCheck">Want to check your balance? Enter your TKL address in the block explorer.</span>
@@ -216,6 +218,55 @@
     </div>
   </section>
 
+  <section class="section" id="oniu">
+    <div class="glass app-feature">
+      <div class="app-copy">
+        <p class="eyebrow" data-i18n="appKicker">BUILT ON TKL</p>
+        <h2 data-i18n="appTitle">OniU, the first app using TKL</h2>
+        <p data-i18n="appText">OniU is where TKL gets used every day: chat, fortune telling, card games and daily rewards, with a built-in TKL wallet whose keys never leave your phone. It installs as an app on iPhone and Android. We are building more ways to use TKL there, step by step.</p>
+        <ul class="app-points">
+          <li data-i18n="appP1">Built-in TKL wallet: your keys stay on your phone</li>
+          <li data-i18n="appP2">Daily community rewards paid in TKL</li>
+          <li data-i18n="appP3">More ways to use TKL, added over time</li>
+        </ul>
+      </div>
+      <a class="btn primary" href="https://app.oniu.uk/" target="_blank" rel="noopener" data-i18n="appOpen">Open OniU</a>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <div class="head">
+      <p class="eyebrow" data-i18n="supKicker">SUPPORT THE COMMUNITY</p>
+      <h2 data-i18n="supTitle">Help keep Tokel Genesis running</h2>
+    </div>
+    <div class="grid two support">
+      <article class="card" id="donate">
+        <h3 data-i18n="donTitle">Donate TKL</h3>
+        <p data-i18n="donText">Donations go to the Tokel Genesis community wallet. It pays OniU's daily community rewards and supplies the USDT to TKL counter on this page, keeping the network and the community going.</p>
+        <div class="copy-row allow-copy">
+          <code id="donateAddr">RJ9SyaC9tfXep6i3TqXfZwpQKPRabcDUZ1</code>
+          <button class="btn small" type="button" data-copy="donateAddr" data-i18n="copy">Copy</button>
+        </div>
+        <p class="tiny muted" data-i18n="donNote">Send only TKL to this address, and check every character: transfers can't be undone. This is the only donation address; anyone giving you a different one is not us.</p>
+      </article>
+      <article class="card" id="buy">
+        <h3 data-i18n="buyTitle">Buy TKL with USDT</h3>
+        <p data-i18n="buyText">100 USDT per TKL, from 0.05 to 10 TKL per order. You pay USDT on BNB Smart Chain (BEP20); the TKL is sent to your address automatically once the payment has 20 confirmations.</p>
+        <form id="buyForm" class="buy-form" novalidate>
+          <label for="buyAddr" data-i18n="buyAddrLabel">Your TKL address (starts with R)</label>
+          <input id="buyAddr" name="address" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" placeholder="R…" required>
+          <label for="buyAmt" data-i18n="buyAmtLabel">Amount of TKL</label>
+          <input id="buyAmt" name="tkl" type="text" inputmode="decimal" autocomplete="off" maxlength="12" placeholder="0.05 – 10" required>
+          <p class="tiny muted" id="buyCost" aria-live="polite"></p>
+          <button class="btn primary" type="submit" id="buyGo" data-i18n="buyGo">Get payment details</button>
+          <p class="tiny form-msg" id="buyMsg" role="status"></p>
+        </form>
+        <div id="buyOrder" class="order allow-copy" hidden></div>
+        <p class="tiny muted" id="buyOff" hidden data-i18n="buyOff">Buying here is unavailable right now. You can also buy inside OniU (My → Buy TKL with USDT), or try again later.</p>
+      </article>
+    </div>
+  </section>
+
   <section class="section" id="legacy">
     <div class="glass legacy">
       <p class="eyebrow" data-i18n="legacyKicker">IN GRATITUDE</p>
@@ -261,7 +312,8 @@
   <p class="muted" data-i18n="footNote">A community continuation of TokelPlatform. Open source, free, community-maintained.</p>
 </footer>
 
-<script src="app.js?v=202610011227"></script>
+<script src="app.js?v=202610011700"></script>
 <script src="effects.js?v=202610011227"></script>
+<script src="support.js?v=202610011700"></script>
 </body>
 </html>

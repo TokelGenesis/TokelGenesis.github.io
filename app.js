@@ -8,6 +8,8 @@
     navWhy: '為什麼是 Tokel',
     navStart: '開始使用',
     navFaq: '常見問題',
+    navApp: 'OniU',
+    navSupport: '支持我們',
     heroTitle1: '創世紀',
     heroTitle2: '新篇章',
     heroLead: '讓每個人都能輕鬆發行代幣與 NFT。沒有複雜的智能合約，同一條鏈、同一個 TKL，由社群延續前進。',
@@ -33,7 +35,7 @@
     h3t: '錢包相容',
     h3d: '原本的助記詞與私鑰照常使用。請只在你信任的錢包輸入，任何人都不會向你索取助記詞。',
     safeTitle: '安全提醒',
-    safeText: 'Tokel Genesis 永遠不會向你索取助記詞或私鑰，也沒有任何「遷移」「領取」「空投」活動。官方只有這個網站、GitHub 上的 TokelGenesis，以及 imperialtokel@gmail.com。',
+    safeText: 'Tokel Genesis 永遠不會向你索取助記詞或私鑰，也沒有任何「遷移」「領取」「空投」活動。官方只有這個網站、GitHub 上的 TokelGenesis、OniU 應用（app.oniu.uk），以及 imperialtokel@gmail.com。',
     holdersCheck: '想確認餘額？在區塊瀏覽器輸入你的 TKL 地址即可查看。',
     openExplorer: '開啟區塊瀏覽器',
     whyKicker: '為什麼是 Tokel',
@@ -66,6 +68,25 @@
     s6t: '一起參與',
     s6d: '回報問題、提出改進、成為維護者。社群從這裡慢慢長大。',
     s6go: '加入 →',
+    appKicker: '用 TKL 打造',
+    appTitle: 'OniU，第一個使用 TKL 的應用',
+    appText: 'OniU 是 TKL 每天被使用的地方：聊天、算命、卡牌遊戲與每日獎勵，內建 TKL 錢包，私鑰只存在你的手機裡。可以在 iPhone 與 Android 上安裝成 App。我們會在這裡慢慢加入更多使用 TKL 的玩法。',
+    appP1: '內建 TKL 錢包：私鑰只在你的手機',
+    appP2: '每日社群獎勵以 TKL 發放',
+    appP3: '更多 TKL 玩法持續加入',
+    appOpen: '開啟 OniU',
+    supKicker: '支持社群',
+    supTitle: '一起讓 Tokel Genesis 持續運作',
+    donTitle: '捐贈 TKL',
+    donText: '捐贈會進入 Tokel Genesis 社群營運錢包，用於 OniU 的每日社群獎勵，以及本頁「USDT 換 TKL」的供應，讓網路與社群持續運作。',
+    copy: '複製',
+    donNote: '這個地址只收 TKL，請逐字核對：轉帳無法撤回。這是唯一的捐贈地址，任何人給你其他地址都不是我們。',
+    buyTitle: '用 USDT 購買 TKL',
+    buyText: '每 1 TKL 為 100 USDT，每筆 0.05 到 10 TKL。以 BNB 智能鏈（BEP20）上的 USDT 付款，付款達 20 個確認後，TKL 會自動送到你的地址。',
+    buyAddrLabel: '你的 TKL 地址（R 開頭）',
+    buyAmtLabel: 'TKL 數量',
+    buyGo: '取得付款資訊',
+    buyOff: '目前無法在這裡購買。你也可以在 OniU 裡購買（我的 → 用 USDT 買 TKL），或稍後再試。',
     legacyKicker: '致敬',
     legacyTitle: '謝謝原 TokelPlatform 團隊',
     legacyText: '你們建立了這條鏈、這些工具，以及一群相信它的人。Tokel Genesis 會把這份心血好好延續下去。',
@@ -139,7 +160,8 @@
   });
 
   // no right-click menu, image dragging or common view-source shortcuts (a deterrent only: the page holds no secrets)
-  document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  // (addresses, amounts and the buy form stay copyable: phones copy through that very menu)
+  document.addEventListener('contextmenu', function (e) { if (!(e.target.closest && e.target.closest('.allow-copy, input, textarea'))) e.preventDefault(); });
   document.addEventListener('dragstart', function (e) { if (e.target.tagName === 'IMG' || e.target.tagName === 'A') e.preventDefault(); });
   document.addEventListener('keydown', function (e) {
     var k = (e.key || '').toLowerCase();
