@@ -42,7 +42,7 @@ await page.route('https://explorer.tokel.io/**', r => r.abort());
 const before = errors.length;
 await page.goto(URL); await page.waitForTimeout(3000);
 const down = await page.evaluate(() => [document.getElementById('liveHeight').textContent, document.getElementById('livePulse').className]);
-check('explorer unreachable: panel degrades gracefully', down[0] === '—' && /idle/.test(down[1]), down.join(' '));
+check('explorer unreachable: panel degrades gracefully', down[0] === '-' && /idle/.test(down[1]), down.join(' '));
 check('explorer unreachable: no page crash', errors.slice(before).filter(e => !/Failed to load resource|ERR_FAILED|net::/.test(e)).length === 0, errors.slice(before).join(' | '));
 await page.unroute('https://explorer.tokel.io/**');
 // keyboard only
