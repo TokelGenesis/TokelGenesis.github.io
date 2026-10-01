@@ -200,7 +200,7 @@
         if (b && typeof b.time === 'number') { lastTime = b.time; tickAge(); }
       }).catch(function () {
         pulse.className = 'pulse idle';
-        if (!shown) { hEl.textContent = '—'; }
+        if (!shown) { hEl.textContent = '-'; }
       });
     }
     refresh();
