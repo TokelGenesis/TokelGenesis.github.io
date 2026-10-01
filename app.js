@@ -49,7 +49,7 @@
     startKicker: '開始使用',
     startTitle: '選擇你需要的',
     s1t: '桌面錢包',
-    s1d: 'Windows、Mac、Linux。目前提供原版 v1.4.0；安全強化版即將發布。',
+    s1d: 'Windows、Mac、Linux。v1.5.0 安全強化版（測試版），原本的錢包可直接沿用。',
     s1go: '下載 →',
     s2t: '區塊瀏覽器',
     s2d: '查詢地址、交易、區塊與代幣。',
