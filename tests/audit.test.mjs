@@ -86,7 +86,7 @@ check('one h1, no skipped heading levels', st.h1 === 1 && jumps === 0, JSON.stri
 check('every image has alt text', st.imgNoAlt === 0);
 check('no duplicate ids', st.ids.length === 0, st.ids.join(','));
 check('page language, viewport and description set', st.lang && st.viewport && st.desc);
-const man = JSON.parse(readFileSync('/home/zen/tokel/tokelgenesis.github.io/manifest.webmanifest', 'utf8'));
+const man = JSON.parse(readFileSync(new URL('../manifest.webmanifest', import.meta.url), 'utf8'));
 const iconSizes = await Promise.all(man.icons.map(async i => { const r = await page.request.get(URL + i.src); const b = await r.body(); return [i.sizes, r.status(), b.readUInt32BE(16) + 'x' + b.readUInt32BE(20)]; }));
 check('manifest icons exist with the declared sizes', iconSizes.every(([s, code, real]) => code === 200 && s === real), JSON.stringify(iconSizes));
 const sw = await page.request.get(URL + 'sw.js'); const swText = await sw.text();
