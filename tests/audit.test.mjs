@@ -96,7 +96,7 @@ check('every file the offline cache needs exists', missing.length === 0, missing
 check('no page errors overall', errors.filter(e => !/Failed to load resource|net::/.test(e)).length === 0, errors.slice(0, 4).join(' | '));
 // without JavaScript: all content still readable
 await app.close();
-const app2 = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox'] });
+const app2 = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox', '--user-data-dir=' + T + 'nojs-' + Date.now()] }); // clean profile: no offline cache serving scripts
 const p2 = await app2.firstWindow();
 await p2.context().route(/\.js(\?|$)/, r => r.abort());
 await p2.goto(URL); await p2.waitForTimeout(800);
