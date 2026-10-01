@@ -90,7 +90,7 @@ const man = JSON.parse(readFileSync('/home/zen/tokel/tokelgenesis.github.io/mani
 const iconSizes = await Promise.all(man.icons.map(async i => { const r = await page.request.get(URL + i.src); const b = await r.body(); return [i.sizes, r.status(), b.readUInt32BE(16) + 'x' + b.readUInt32BE(20)]; }));
 check('manifest icons exist with the declared sizes', iconSizes.every(([s, code, real]) => code === 200 && s === real), JSON.stringify(iconSizes));
 const sw = await page.request.get(URL + 'sw.js'); const swText = await sw.text();
-const shell = [...swText.matchAll(/'([^']+\.(?:html|css|js|webmanifest|svg|png))'/g)].map(m => m[1]);
+const shell = [...swText.matchAll(/'([^']+\.(?:html|css|js|webmanifest|svg|png)(?:\?v=\d+)?)'/g)].map(m => m[1]);
 const missing = []; for (const f of shell) { const r = await page.request.get(URL + f); if (r.status() !== 200) missing.push(f); }
 check('every file the offline cache needs exists', missing.length === 0, missing.join(','));
 check('no page errors overall', errors.filter(e => !/Failed to load resource|net::/.test(e)).length === 0, errors.slice(0, 4).join(' | '));
@@ -98,7 +98,7 @@ check('no page errors overall', errors.filter(e => !/Failed to load resource|net
 await app.close();
 const app2 = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox'] });
 const p2 = await app2.firstWindow();
-await p2.context().route('**/*.js', r => r.abort());
+await p2.context().route(/\.js(\?|$)/, r => r.abort());
 await p2.goto(URL); await p2.waitForTimeout(800);
 const nojs = await p2.evaluate(() => ({ visible: [...document.querySelectorAll('h1,h2,.card,.faq details')].filter(el => getComputedStyle(el).opacity > 0.9 && el.getBoundingClientRect().height > 0).length, total: document.querySelectorAll('h1,h2,.card,.faq details').length }));
 check('without JavaScript every section is still readable', nojs.visible === nojs.total, JSON.stringify(nojs));

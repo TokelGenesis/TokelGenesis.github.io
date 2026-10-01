@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tokel Genesis｜創世紀・新篇章</title>
-<meta name="description" content="Tokel Genesis 是 TokelPlatform 的社群延續：同一條鏈、同一個 TKL，讓每個人都能輕鬆發行代幣與 NFT。">
+<title>Tokel Genesis｜A New Chapter</title>
+<meta name="description" content="Tokel Genesis is the community continuation of TokelPlatform: same chain, same TKL. Create tokens and NFTs easily, for everyone.">
 <meta name="theme-color" content="#0b0f1d" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
-<meta property="og:title" content="Tokel Genesis｜創世紀・新篇章">
-<meta property="og:description" content="TokelPlatform 的社群延續。同一條鏈、同一個 TKL。">
+<meta property="og:title" content="Tokel Genesis｜A New Chapter">
+<meta property="og:description" content="The community continuation of TokelPlatform. Same chain, same TKL.">
 <meta property="og:image" content="https://tokelgenesis.github.io/assets/icon-512.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,7 +18,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=202610011211">
 </head>
 <body>
 
@@ -28,14 +28,14 @@
     <span>Tokel <b>Genesis</b></span>
   </a>
   <nav class="links" id="navLinks">
-    <a href="#chapter" data-i18n="navChapter">新篇章</a>
-    <a href="#holders" data-i18n="navHolders">給持有者</a>
-    <a href="#why" data-i18n="navWhy">為什麼是 Tokel</a>
-    <a href="#start" data-i18n="navStart">開始使用</a>
-    <a href="#faq" data-i18n="navFaq">常見問題</a>
+    <a href="#chapter" data-i18n="navChapter">New chapter</a>
+    <a href="#holders" data-i18n="navHolders">For holders</a>
+    <a href="#why" data-i18n="navWhy">Why Tokel</a>
+    <a href="#start" data-i18n="navStart">Get started</a>
+    <a href="#faq" data-i18n="navFaq">FAQ</a>
   </nav>
   <div class="nav-actions">
-    <button class="pill ghost" id="langBtn" type="button" aria-label="Switch language">EN</button>
+    <button class="pill ghost" id="langBtn" type="button" aria-label="切換中文 / Switch language">中文</button>
     <a class="pill" href="https://github.com/TokelGenesis" target="_blank" rel="noopener">GitHub</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
   </div>
@@ -82,33 +82,33 @@
 </svg>
 </div>
     <p class="eyebrow">TOKEL GENESIS｜Γένεσις</p>
-    <h1 class="reveal-title"><span data-i18n="heroTitle1">創世紀</span><span class="dot">・</span><span class="grad shimmer" data-i18n="heroTitle2">新篇章</span></h1>
-    <p class="lead" data-i18n="heroLead">讓每個人都能輕鬆發行代幣與 NFT。沒有複雜的智能合約，同一條鏈、同一個 TKL，由社群延續前進。</p>
+    <h1 class="reveal-title"><span data-i18n="heroTitle1">Genesis</span><span class="dot">・</span><span class="grad shimmer" data-i18n="heroTitle2">A new chapter</span></h1>
+    <p class="lead" data-i18n="heroLead">Create tokens and NFTs easily, for everyone. No complicated smart contracts. Same chain, same TKL, carried forward by its community.</p>
     <div class="cta">
-      <a class="btn primary" href="#start" data-i18n="heroStart">開始使用</a>
-      <a class="btn" href="#holders" data-i18n="heroHolders">我是原本的持有者</a>
+      <a class="btn primary" href="#start" data-i18n="heroStart">Get started</a>
+      <a class="btn" href="#holders" data-i18n="heroHolders">I already hold TKL</a>
     </div>
     <ul class="facts">
-      <li><b>60s</b><span data-i18n="factBlock">出塊時間</span></li>
-      <li><b>PoW</b><span data-i18n="factPow">Equihash 挖礦</span></li>
-      <li><b>~200M</b><span data-i18n="factSupply">TKL 總量上限</span></li>
-      <li><b>Komodo</b><span data-i18n="factTech">底層技術</span></li>
+      <li><b>60s</b><span data-i18n="factBlock">block time</span></li>
+      <li><b>PoW</b><span data-i18n="factPow">Equihash mining</span></li>
+      <li><b>~200M</b><span data-i18n="factSupply">max TKL supply</span></li>
+      <li><b>Komodo</b><span data-i18n="factTech">built on</span></li>
     </ul>
     <div class="live glass" id="live" aria-live="polite">
-      <div class="live-head"><span class="pulse" id="livePulse"></span><span data-i18n="liveTitle">即時鏈上數據</span><span class="tiny muted" id="liveSrc">explorer.tokel.io</span></div>
+      <div class="live-head"><span class="pulse" id="livePulse"></span><span data-i18n="liveTitle">Live on-chain data</span><span class="tiny muted" id="liveSrc">explorer.tokel.io</span></div>
       <div class="live-grid">
-        <div><b id="liveHeight">…</b><span data-i18n="liveHeight">區塊高度</span></div>
-        <div><b id="liveAge">…</b><span data-i18n="liveAge">距上一個區塊</span></div>
-        <div><b id="liveDiff">…</b><span data-i18n="liveDiff">挖礦難度</span></div>
-        <div><b id="livePeers">…</b><span data-i18n="livePeers">節點連線</span></div>
+        <div><b id="liveHeight">…</b><span data-i18n="liveHeight">block height</span></div>
+        <div><b id="liveAge">…</b><span data-i18n="liveAge">since last block</span></div>
+        <div><b id="liveDiff">…</b><span data-i18n="liveDiff">mining difficulty</span></div>
+        <div><b id="livePeers">…</b><span data-i18n="livePeers">node connections</span></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="chapter">
     <div class="glass statement">
-      <p class="eyebrow" data-i18n="chapterKicker">社群延續</p>
-      <h2 data-i18n="chapterTitle">一個新的開始，延續原本的一切</h2>
+      <p class="eyebrow" data-i18n="chapterKicker">COMMUNITY CONTINUATION</p>
+      <h2 data-i18n="chapterTitle">A new beginning that keeps everything</h2>
       <p class="zh-only">Tokel Genesis 是 TokelPlatform 的社群延續。原團隊的貢獻永遠保留在歷史中；所有舊錢包、代幣、餘額完全相容，鏈上資料一點都沒變。</p>
       <p class="muted">Tokel Genesis is a community continuation of TokelPlatform. The original team's contributions remain in the history forever. All existing wallets, tokens and balances are fully compatible, and nothing on-chain has changed.</p>
     </div>
@@ -116,152 +116,152 @@
 
   <section class="section" id="holders">
     <div class="head">
-      <p class="eyebrow" data-i18n="holdersKicker">給原本的持有者</p>
-      <h2 data-i18n="holdersTitle">你的 TKL 都還在</h2>
+      <p class="eyebrow" data-i18n="holdersKicker">FOR EXISTING HOLDERS</p>
+      <h2 data-i18n="holdersTitle">Your TKL is still here</h2>
     </div>
     <div class="grid three">
       <article class="card">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></div>
-        <h3 data-i18n="h1t">同一條鏈</h3>
-        <p data-i18n="h1d">區塊鏈已恢復出塊，高度延續原本的區塊之後。所有歷史交易都完整保留。</p>
+        <h3 data-i18n="h1t">Same chain</h3>
+        <p data-i18n="h1d">The chain is producing blocks again, continuing right after the original blocks. Every past transaction is intact.</p>
       </article>
       <article class="card">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 9h3.5a1.75 1.75 0 0 1 0 3.5H10.5a1.75 1.75 0 0 0 0 3.5H14.5M12 7.5v1.5M12 16v1.5"/></svg></div>
-        <h3 data-i18n="h2t">同一個 TKL</h3>
-        <p data-i18n="h2d">不需要轉換、兌換或領取。你的地址、餘額、代幣與 NFT 都和以前一樣。</p>
+        <h3 data-i18n="h2t">Same TKL</h3>
+        <p data-i18n="h2d">Nothing to convert, swap or claim. Your addresses, balances, tokens and NFTs are exactly as before.</p>
       </article>
       <article class="card">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9.5" rx="2.2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.7" r="1.2"/></svg></div>
-        <h3 data-i18n="h3t">錢包相容</h3>
-        <p data-i18n="h3d">原本的助記詞與私鑰照常使用。請只在你信任的錢包輸入，任何人都不會向你索取助記詞。</p>
+        <h3 data-i18n="h3t">Wallets still work</h3>
+        <p data-i18n="h3d">Your existing seed phrase and keys work as always. Only enter them in a wallet you trust; nobody will ever ask you for them.</p>
       </article>
     </div>
     <div class="safety glass" role="note">
-      <strong data-i18n="safeTitle">安全提醒</strong>
-      <p data-i18n="safeText">Tokel Genesis 永遠不會向你索取助記詞或私鑰，也沒有任何「遷移」「領取」「空投」活動。官方只有這個網站、GitHub 上的 TokelGenesis，以及 imperialtokel@gmail.com。</p>
+      <strong data-i18n="safeTitle">Stay safe</strong>
+      <p data-i18n="safeText">Tokel Genesis will never ask for your seed phrase or private keys, and there is no "migration", "claim" or "airdrop". The only official places are this website, TokelGenesis on GitHub, and imperialtokel@gmail.com.</p>
     </div>
     <div class="note glass">
-      <span data-i18n="holdersCheck">想確認餘額？在區塊瀏覽器輸入你的 TKL 地址即可查看。</span>
-      <a class="btn small" href="https://explorer.tokel.io/" target="_blank" rel="noopener" data-i18n="openExplorer">開啟區塊瀏覽器</a>
+      <span data-i18n="holdersCheck">Want to check your balance? Enter your TKL address in the block explorer.</span>
+      <a class="btn small" href="https://explorer.tokel.io/" target="_blank" rel="noopener" data-i18n="openExplorer">Open the explorer</a>
     </div>
   </section>
 
   <section class="section" id="why">
     <div class="head">
-      <p class="eyebrow" data-i18n="whyKicker">為什麼是 Tokel</p>
-      <h2 data-i18n="whyTitle">代幣與 NFT，原生在鏈上</h2>
+      <p class="eyebrow" data-i18n="whyKicker">WHY TOKEL</p>
+      <h2 data-i18n="whyTitle">Tokens and NFTs, native on-chain</h2>
     </div>
     <div class="grid two">
       <article class="card wide">
-        <h3 data-i18n="w1t">不需要智能合約</h3>
-        <p data-i18n="w1d">代幣與 NFT 由鏈本身的功能建立（Komodo Antara 模組），不用寫合約，也沒有合約漏洞的風險。</p>
+        <h3 data-i18n="w1t">No smart contracts needed</h3>
+        <p data-i18n="w1d">Tokens and NFTs are created by the chain itself (Komodo Antara modules): no contract code to write and no contract bugs to fear.</p>
       </article>
       <article class="card wide">
-        <h3 data-i18n="w2t">手續費極低</h3>
-        <p data-i18n="w2d">沒有 Gas 競價。發行與轉帳的費用以極小的 TKL 計算，人人負擔得起。</p>
+        <h3 data-i18n="w2t">Tiny fees</h3>
+        <p data-i18n="w2d">No gas bidding wars. Issuing and sending cost a tiny amount of TKL, affordable for anyone.</p>
       </article>
       <article class="card wide">
-        <h3 data-i18n="w3t">工作量證明</h3>
-        <p data-i18n="w3d">Equihash 挖礦、60 秒出塊，並加入檢查點與深度重組保護，強化網路安全。</p>
+        <h3 data-i18n="w3t">Proof of work</h3>
+        <p data-i18n="w3d">Equihash mining with 60-second blocks, plus checkpoints and deep-reorg protection for a safer network.</p>
       </article>
       <article class="card wide">
-        <h3 data-i18n="w4t">開源、持續維護</h3>
-        <p data-i18n="w4d">節點、錢包、輕節點函式庫與瀏覽器全部開源，並已完成安全更新與相依套件升級。</p>
+        <h3 data-i18n="w4t">Open source, maintained</h3>
+        <p data-i18n="w4d">Node, wallet, light-client library and explorer are all open source, with security fixes and dependency upgrades done.</p>
       </article>
     </div>
   </section>
 
   <section class="section" id="start">
     <div class="head">
-      <p class="eyebrow" data-i18n="startKicker">開始使用</p>
-      <h2 data-i18n="startTitle">選擇你需要的</h2>
+      <p class="eyebrow" data-i18n="startKicker">GET STARTED</p>
+      <h2 data-i18n="startTitle">Pick what you need</h2>
     </div>
     <div class="grid three">
       <a class="card link" href="https://github.com/TokelPlatform/tokel_dapp/releases/latest" target="_blank" rel="noopener">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6.5" width="17" height="13" rx="2.5"/><path d="M3.5 10.5h17M16 14.5h1.5"/><path d="M7 6.5V5.5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1"/></svg></div>
-        <h3 data-i18n="s1t">桌面錢包</h3>
-        <p data-i18n="s1d">Windows、Mac、Linux。目前提供原版 v1.4.0；安全強化版即將發布。</p>
-        <span class="go" data-i18n="s1go">下載 →</span>
+        <h3 data-i18n="s1t">Desktop wallet</h3>
+        <p data-i18n="s1d">Windows, Mac, Linux. The original v1.4.0 is available now; a security-hardened release is coming.</p>
+        <span class="go" data-i18n="s1go">Download →</span>
       </a>
       <a class="card link" href="https://explorer.tokel.io/" target="_blank" rel="noopener">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg></div>
-        <h3 data-i18n="s2t">區塊瀏覽器</h3>
-        <p data-i18n="s2d">查詢地址、交易、區塊與代幣。</p>
-        <span class="go" data-i18n="s2go">開啟 →</span>
+        <h3 data-i18n="s2t">Block explorer</h3>
+        <p data-i18n="s2d">Look up addresses, transactions, blocks and tokens.</p>
+        <span class="go" data-i18n="s2go">Open →</span>
       </a>
       <a class="card link" href="https://github.com/TokelGenesis/tokel" target="_blank" rel="noopener">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div>
-        <h3 data-i18n="s3t">運行節點與挖礦</h3>
-        <p data-i18n="s3d">自己跑一個全節點，用 CPU 參與挖礦，一起守護網路。</p>
-        <span class="go" data-i18n="s3go">查看說明 →</span>
+        <h3 data-i18n="s3t">Run a node and mine</h3>
+        <p data-i18n="s3d">Run your own full node and mine with a CPU to help secure the network.</p>
+        <span class="go" data-i18n="s3go">Read the guide →</span>
       </a>
       <a class="card link" href="https://github.com/TokelGenesis/nspv-js" target="_blank" rel="noopener">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5.5l-3 13"/></svg></div>
-        <h3 data-i18n="s4t">開發者</h3>
-        <p data-i18n="s4d">nSPV 輕節點函式庫：在 App 或網頁中查詢餘額、簽名交易。</p>
+        <h3 data-i18n="s4t">Developers</h3>
+        <p data-i18n="s4d">nSPV light-client library: check balances and sign transactions in apps and web pages.</p>
         <span class="go" data-i18n="s4go">GitHub →</span>
       </a>
       <a class="card link" href="https://docs.tokel.io/" target="_blank" rel="noopener">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg></div>
-        <h3 data-i18n="s5t">技術文件</h3>
-        <p data-i18n="s5d">建立代幣與 NFT、鏈的參數與 API 說明（原團隊文件）。</p>
-        <span class="go" data-i18n="s5go">閱讀 →</span>
+        <h3 data-i18n="s5t">Documentation</h3>
+        <p data-i18n="s5d">Creating tokens and NFTs, chain parameters and API (original team documentation).</p>
+        <span class="go" data-i18n="s5go">Read →</span>
       </a>
       <a class="card link" href="https://github.com/TokelGenesis" target="_blank" rel="noopener">
         <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A4.5 4.5 0 0 1 21 18.5"/></svg></div>
-        <h3 data-i18n="s6t">一起參與</h3>
-        <p data-i18n="s6d">回報問題、提出改進、成為維護者。社群從這裡慢慢長大。</p>
-        <span class="go" data-i18n="s6go">加入 →</span>
+        <h3 data-i18n="s6t">Get involved</h3>
+        <p data-i18n="s6d">Report issues, suggest improvements, become a maintainer. The community grows from here.</p>
+        <span class="go" data-i18n="s6go">Join →</span>
       </a>
     </div>
   </section>
 
   <section class="section" id="legacy">
     <div class="glass legacy">
-      <p class="eyebrow" data-i18n="legacyKicker">致敬</p>
-      <h2 data-i18n="legacyTitle">謝謝原 TokelPlatform 團隊</h2>
-      <p data-i18n="legacyText">你們建立了這條鏈、這些工具，以及一群相信它的人。Tokel Genesis 會把這份心血好好延續下去。</p>
-      <a class="btn small" href="https://github.com/TokelPlatform" target="_blank" rel="noopener" data-i18n="legacyLink">原始專案 TokelPlatform</a>
+      <p class="eyebrow" data-i18n="legacyKicker">IN GRATITUDE</p>
+      <h2 data-i18n="legacyTitle">Thank you, original TokelPlatform team</h2>
+      <p data-i18n="legacyText">You built this chain, these tools and a community that believed in it. Tokel Genesis will carry that work forward with care.</p>
+      <a class="btn small" href="https://github.com/TokelPlatform" target="_blank" rel="noopener" data-i18n="legacyLink">Original project: TokelPlatform</a>
     </div>
   </section>
 
   <section class="section" id="faq">
     <div class="head">
-      <p class="eyebrow" data-i18n="faqKicker">常見問題</p>
-      <h2 data-i18n="faqTitle">你可能想知道</h2>
+      <p class="eyebrow" data-i18n="faqKicker">FAQ</p>
+      <h2 data-i18n="faqTitle">You might be wondering</h2>
     </div>
     <div class="faq">
-      <details class="glass"><summary data-i18n="q1">Tokel Genesis 是官方 TokelPlatform 嗎？</summary><p data-i18n="a1">不是。它是社群延續：延用同一條鏈與原始程式碼（完整保留原作者與歷史），並持續修正與更新。</p></details>
-      <details class="glass"><summary data-i18n="q2">我需要做什麼才能保住我的 TKL？</summary><p data-i18n="a2">什麼都不用做。你的 TKL、代幣與 NFT 都在原本的地址上。請小心任何要求你「遷移」或「領取」的訊息，那都是詐騙。</p></details>
-      <details class="glass"><summary data-i18n="q3">鏈為什麼曾經停止？</summary><p data-i18n="a3">原團隊停止營運後，沒有人繼續挖礦，區塊就停了。現在有人持續挖礦，鏈已恢復正常出塊，資料完全沒有改變。</p></details>
-      <details class="glass"><summary data-i18n="q4">我可以參與挖礦嗎？</summary><p data-i18n="a4">可以。Tokel 使用 Equihash，用一般電腦的 CPU 就能挖。請參考「運行節點與挖礦」的說明。</p></details>
-      <details class="glass"><summary data-i18n="q5">tokel.io 怎麼打不開？</summary><p data-i18n="a5">那是原團隊的網域，主機已停止服務。Tokel Genesis 的新家就是這個網站與 GitHub 上的 TokelGenesis。</p></details>
-      <details class="glass"><summary data-i18n="q6">如何聯絡你們？</summary><p data-i18n="a6">寄信到 imperialtokel@gmail.com，或在 GitHub 上提出 Issue。</p></details>
+      <details class="glass"><summary data-i18n="q1">Is Tokel Genesis the official TokelPlatform?</summary><p data-i18n="a1">No. It is a community continuation: the same chain and the original code (with all authorship and history kept), with ongoing fixes and updates.</p></details>
+      <details class="glass"><summary data-i18n="q2">What do I need to do to keep my TKL?</summary><p data-i18n="a2">Nothing. Your TKL, tokens and NFTs stay at your addresses. Be careful with any message asking you to "migrate" or "claim": those are scams.</p></details>
+      <details class="glass"><summary data-i18n="q3">Why did the chain stop?</summary><p data-i18n="a3">After the original team stopped operating, nobody kept mining, so blocks stopped. Mining has resumed and the chain is producing blocks normally; no data changed.</p></details>
+      <details class="glass"><summary data-i18n="q4">Can I mine?</summary><p data-i18n="a4">Yes. Tokel uses Equihash and can be mined with an ordinary computer's CPU. See "Run a node and mine".</p></details>
+      <details class="glass"><summary data-i18n="q5">Why doesn't tokel.io open?</summary><p data-i18n="a5">It is the original team's domain and its server has stopped. The new home of Tokel Genesis is this site and TokelGenesis on GitHub.</p></details>
+      <details class="glass"><summary data-i18n="q6">How do I contact you?</summary><p data-i18n="a6">Email imperialtokel@gmail.com, or open an issue on GitHub.</p></details>
     </div>
   </section>
 
   <section class="section" id="contact">
     <div class="glass contact">
       <div>
-        <h2 data-i18n="contactTitle">聯絡我們</h2>
-        <p class="muted" data-i18n="contactText">合作、回報問題或想加入維護，都歡迎來信。</p>
+        <h2 data-i18n="contactTitle">Contact us</h2>
+        <p class="muted" data-i18n="contactText">Partnerships, bug reports or joining as a maintainer: all welcome.</p>
       </div>
       <div class="contact-actions">
         <button class="btn primary" id="copyMail" type="button">imperialtokel@gmail.com</button>
         <a class="btn" href="https://github.com/TokelGenesis" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <p class="tiny" id="copied" hidden data-i18n="copied">已複製信箱</p>
-      <p class="tiny muted" data-i18n="community">原社群頻道：<a href="https://discord.gg/R9u43zYZka" target="_blank" rel="noopener">Discord</a>・<a href="https://t.me/TokelPlatformchat" target="_blank" rel="noopener">Telegram</a>・<a href="https://twitter.com/TokelPlatform" target="_blank" rel="noopener">X</a></p>
+      <p class="tiny" id="copied" hidden data-i18n="copied">Email copied</p>
+      <p class="tiny muted" data-i18n="community">Original community channels: <a href="https://discord.gg/R9u43zYZka" target="_blank" rel="noopener">Discord</a>・<a href="https://t.me/TokelPlatformchat" target="_blank" rel="noopener">Telegram</a>・<a href="https://twitter.com/TokelPlatform" target="_blank" rel="noopener">X</a></p>
     </div>
   </section>
 </main>
 
 <footer class="foot">
   <p>Tokel Genesis｜Γένεσις</p>
-  <p class="muted" data-i18n="footNote">TokelPlatform 的社群延續。開源、免費、由社群維護。</p>
+  <p class="muted" data-i18n="footNote">A community continuation of TokelPlatform. Open source, free, community-maintained.</p>
 </footer>
 
-<script src="app.js"></script>
-<script src="effects.js"></script>
+<script src="app.js?v=202610011211"></script>
+<script src="effects.js?v=202610011211"></script>
 </body>
 </html>

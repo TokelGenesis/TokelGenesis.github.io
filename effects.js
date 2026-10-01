@@ -95,7 +95,7 @@
       for (var i = 0; i < text.length; i++) {
         var ch = document.createElement('span');
         ch.className = 'ch';
-        ch.textContent = text[i];
+        ch.textContent = text[i] === ' ' ? '\u00a0' : text[i]; // a plain space would collapse inside inline-block
         ch.style.animationDelay = (0.08 + n++ * 0.07) + 's';
         part.appendChild(ch);
       }

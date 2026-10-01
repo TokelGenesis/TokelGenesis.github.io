@@ -249,3 +249,10 @@ html[lang="en"] .zh-only { display: none; }
 @keyframes ping { from { transform: scale(.4); opacity: .9; } to { transform: scale(1.6); opacity: 0; } }
 @media (max-width: 760px) { .live-grid { grid-template-columns: repeat(2, 1fr); row-gap: 0.9rem; } }
 @media (prefers-reduced-motion: reduce) { .reveal-title .ch { opacity: 1 !important; transform: none !important; filter: none !important; } .rise { opacity: 1 !important; transform: none !important; } }
+
+/* the second half of the title ("A new chapter" / "新篇章") always stays together on one line */
+.reveal-title .grad { display: inline-block; white-space: nowrap; }
+html[lang="en"] .hero h1 { font-size: clamp(2.5rem, 10.5vw, 6.2rem); }
+/* English: two deliberate lines, "Genesis" / "A new chapter" (no dangling dot) */
+html[lang="en"] .reveal-title .dot { display: none; }
+html[lang="en"] .reveal-title .grad { display: block; }

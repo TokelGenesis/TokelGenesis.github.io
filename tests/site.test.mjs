@@ -21,6 +21,11 @@ for (const [w, h, name] of [[1440, 900, 'desktop'], [1024, 1366, 'ipad'], [390, 
 // every in-page anchor points at a real section
 await page.setViewportSize({ width: 1440, height: 900 }); await page.emulateMedia({ colorScheme: 'light' }); await page.goto(URL); await page.evaluate(() => localStorage.setItem('tg.lang', 'zh')); await page.goto(URL);
 const anchors = await page.evaluate(() => [...document.querySelectorAll('a[href^="#"]')].map(a => [a.textContent.trim(), a.getAttribute('href'), !!document.querySelector(a.getAttribute('href'))]));
+await page.goto(URL); await page.evaluate(() => localStorage.clear()); await page.goto(URL); await page.waitForTimeout(500);
+const first = await page.evaluate(() => [document.documentElement.lang, document.querySelector('[data-i18n="heroStart"]').textContent, document.getElementById('langBtn').textContent, document.querySelector('.reveal-title').textContent.replace(/\u00a0/g, ' ')]);
+check('a new visitor sees English first', first[0] === 'en' && first[1] === 'Get started' && first[2] === '中文', first.join(' | '));
+check('English title keeps its spaces', /A new chapter/.test(first[3]), first[3]);
+await page.evaluate(() => localStorage.setItem('tg.lang', 'zh')); await page.goto(URL);
 check('every in-page link has its section', anchors.every(a => a[2]), JSON.stringify(anchors.filter(a => !a[2])));
 // clicking each nav link scrolls to the section
 for (const [text, href] of anchors.filter(a => a[1] !== '#top')) {
