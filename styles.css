@@ -85,16 +85,39 @@ h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
 .tiny { font-size: 0.85rem; }
 
 /* hero */
-.hero { position: relative; text-align: center; padding: 6rem 0 2rem; isolation: isolate; }
+.hero { position: relative; text-align: center; padding: 6rem 0 3rem; isolation: isolate; }
+
+/* hero background: "dawn of the universe", drawn in index.html (SVG), animated here */
+.cosmos { position: absolute; z-index: -1; top: -80px; bottom: -60px; left: 50%; width: 100vw; transform: translateX(-50%); pointer-events: none; overflow: hidden; }
+.cosmos svg { width: 100%; height: 100%; display: block; }
+.cosmos::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--bg)); }
+.cosmos .sky-l { opacity: 1; } .cosmos .sky-d { opacity: 0; }
+.cosmos .star { fill: #fff; opacity: 0; }
+.cosmos .nebula { opacity: .55; }
+.cosmos .sun { opacity: .8; }
+.cosmos .moon { opacity: .7; }
+.tw { animation: twinkle 4.5s ease-in-out infinite; }
+.tw2 { animation-delay: 1.1s; } .tw3 { animation-delay: 2.3s; animation-duration: 6s; } .tw4 { animation-delay: 3.4s; animation-duration: 5.2s; }
+@keyframes twinkle { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+.nebula { animation: drift 28s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: translate(40px, 18px); } }
+.planet { animation: bob 12s ease-in-out infinite; }
+@keyframes bob { 50% { transform: rotate(-16deg) translateY(-10px); } }
+.planet { transform-origin: 1220px 600px; transform: rotate(-16deg); }
+@media (prefers-color-scheme: dark) {
+  .cosmos .sky-l { opacity: 0; } .cosmos .sky-d { opacity: 1; }
+  .cosmos .star { opacity: .8; }
+  .cosmos .tw { opacity: .4; }
+  .cosmos .nebula { opacity: .9; }
+  .cosmos .sun { opacity: .65; }
+}
+/* hero text stays readable over the planet on narrow screens */
+.hero h1, .hero .lead, .hero .eyebrow { position: relative; text-shadow: 0 1px 24px var(--bg); }
 .hero h1 { font-size: clamp(3rem, 10vw, 6.2rem); line-height: 1.02; font-weight: 700; }
 .hero .dot { color: var(--muted); font-weight: 400; }
 .grad { background: linear-gradient(120deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead { max-width: 640px; margin: 1.4rem auto 0; font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--ink-2); }
 .cta { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-.orb { position: absolute; z-index: -1; border-radius: 50%; filter: blur(70px); opacity: .55; pointer-events: none; }
-.orb-a { width: 380px; height: 380px; background: var(--accent); top: 10px; left: calc(50% - 420px); animation: float 14s ease-in-out infinite; }
-.orb-b { width: 340px; height: 340px; background: var(--accent-2); top: 60px; left: calc(50% + 60px); animation: float 16s ease-in-out infinite reverse; }
-@keyframes float { 50% { transform: translate(30px, 24px) scale(1.06); } }
 .facts { list-style: none; padding: 0; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; max-width: 760px; }
 .facts li { background: var(--glass); border: 1px solid var(--glass-line); border-radius: 18px; padding: 0.9rem 0.6rem; box-shadow: var(--shadow); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
 .facts b { display: block; font-size: 1.35rem; }
@@ -163,7 +186,6 @@ html[lang="en"] .zh-only { display: none; }
   .grid.three, .grid.two { grid-template-columns: 1fr; }
   .contact { grid-template-columns: 1fr; }
   .section { padding-top: 3.5rem; }
-  .orb-a { left: -120px; } .orb-b { left: 40%; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
@@ -174,3 +196,11 @@ html[lang="en"] .zh-only { display: none; }
 .safety { margin-top: 1rem; padding: 1.1rem 1.3rem; border-left: 4px solid var(--accent); display: grid; gap: 0.3rem; }
 .safety strong { font-size: 1rem; }
 .safety p { color: var(--ink-2); font-size: 0.95rem; }
+
+/* the subtitle sits on frosted glass where the planet can pass behind it (tablet/phone widths) */
+@media (max-width: 1200px) {
+  .hero .lead { display: inline-block; padding: 0.7rem 1.1rem; border-radius: 18px; background: color-mix(in srgb, var(--bg) 62%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); text-shadow: none; }
+}
+@media (max-width: 760px) {
+  .cosmos .moon { display: none; }
+}
