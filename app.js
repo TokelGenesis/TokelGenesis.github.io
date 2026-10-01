@@ -13,6 +13,7 @@
     h1t: 'Same chain', h1d: 'The chain is producing blocks again, continuing right after the original blocks. Every past transaction is intact.',
     h2t: 'Same TKL', h2d: 'Nothing to convert, swap or claim. Your addresses, balances, tokens and NFTs are exactly as before.',
     h3t: 'Wallets still work', h3d: 'Your existing seed phrase and keys work as always. Only enter them in a wallet you trust; nobody will ever ask you for them.',
+    liveTitle: 'Live on-chain data', liveHeight: 'block height', liveAge: 'since last block', liveDiff: 'mining difficulty', livePeers: 'node connections',
     safeTitle: 'Stay safe', safeText: 'Tokel Genesis will never ask for your seed phrase or private keys, and there is no "migration", "claim" or "airdrop". The only official places are this website, TokelGenesis on GitHub, and imperialtokel@gmail.com.',
     holdersCheck: 'Want to check your balance? Enter your TKL address in the block explorer.', openExplorer: 'Open the explorer',
     whyKicker: 'WHY TOKEL', whyTitle: 'Tokens and NFTs, native on-chain',

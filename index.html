@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tokel">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://explorer.tokel.io; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
@@ -44,6 +44,7 @@
 <main>
   <section class="hero">
 <div class="cosmos" aria-hidden="true">
+<canvas class="starfield" id="starfield"></canvas>
 <svg viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice" focusable="false">
 <defs>
 <linearGradient id="skyD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#060914"/><stop offset=".55" stop-color="#0d1330"/><stop offset="1" stop-color="#1c1a3f"/></linearGradient>
@@ -81,7 +82,7 @@
 </svg>
 </div>
     <p class="eyebrow">TOKEL GENESIS｜Γένεσις</p>
-    <h1><span data-i18n="heroTitle1">創世紀</span><span class="dot">・</span><span class="grad" data-i18n="heroTitle2">新篇章</span></h1>
+    <h1 class="reveal-title"><span data-i18n="heroTitle1">創世紀</span><span class="dot">・</span><span class="grad shimmer" data-i18n="heroTitle2">新篇章</span></h1>
     <p class="lead" data-i18n="heroLead">讓每個人都能輕鬆發行代幣與 NFT。沒有複雜的智能合約，同一條鏈、同一個 TKL，由社群延續前進。</p>
     <div class="cta">
       <a class="btn primary" href="#start" data-i18n="heroStart">開始使用</a>
@@ -93,6 +94,15 @@
       <li><b>~200M</b><span data-i18n="factSupply">TKL 總量上限</span></li>
       <li><b>Komodo</b><span data-i18n="factTech">底層技術</span></li>
     </ul>
+    <div class="live glass" id="live" aria-live="polite">
+      <div class="live-head"><span class="pulse" id="livePulse"></span><span data-i18n="liveTitle">即時鏈上數據</span><span class="tiny muted" id="liveSrc">explorer.tokel.io</span></div>
+      <div class="live-grid">
+        <div><b id="liveHeight">…</b><span data-i18n="liveHeight">區塊高度</span></div>
+        <div><b id="liveAge">…</b><span data-i18n="liveAge">距上一個區塊</span></div>
+        <div><b id="liveDiff">…</b><span data-i18n="liveDiff">挖礦難度</span></div>
+        <div><b id="livePeers">…</b><span data-i18n="livePeers">節點連線</span></div>
+      </div>
+    </div>
   </section>
 
   <section class="section" id="chapter">
@@ -252,5 +262,6 @@
 </footer>
 
 <script src="app.js"></script>
+<script src="effects.js"></script>
 </body>
 </html>
