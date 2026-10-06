@@ -1,6 +1,6 @@
 // Offline copy of the site: pages come from the network first (always fresh), the cache only when offline.
 const CACHE = 'tokel-genesis-v7';
-const SHELL = ['./', 'index.html', 'styles.css?v=202610011700', 'app.js?v=202610012100', 'effects.js?v=202610011227', 'support.js?v=202610011700', 'manifest.webmanifest', 'assets/logo.svg', 'assets/icon-192.png'];
+const SHELL = ['./', 'index.html', 'styles.css?v=202610011700', 'app.js?v=202610061200', 'effects.js?v=202610011227', 'support.js?v=202610011700', 'manifest.webmanifest', 'assets/logo.svg', 'assets/icon-192.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(k => Promise.all(k.filter(x => x !== CACHE).map(x => caches.delete(x)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {
