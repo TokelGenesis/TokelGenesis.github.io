@@ -5,7 +5,7 @@ const T = process.env.CLAUDE_JOB_DIR + '/tmp/';
 const URL = 'http://127.0.0.1:8766/';
 const results = []; let failed = 0;
 const check = (n, ok, d = '') => { results.push(`${ok ? 'ok  ' : 'FAIL'} ${n}${d ? ` — ${d}` : ''}`); if (!ok) failed++; };
-const app = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox'] });
+const app = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox', '--disable-gpu'] });
 const page = await app.firstWindow();
 const errors = []; page.on('pageerror', e => errors.push(e.message)); page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
 const overflowing = () => page.evaluate(() => {
@@ -86,7 +86,7 @@ check('one h1, no skipped heading levels', st.h1 === 1 && jumps === 0, JSON.stri
 check('every image has alt text', st.imgNoAlt === 0);
 check('no duplicate ids', st.ids.length === 0, st.ids.join(','));
 check('page language, viewport and description set', st.lang && st.viewport && st.desc);
-const man = JSON.parse(readFileSync(new URL('../manifest.webmanifest', import.meta.url), 'utf8'));
+const man = JSON.parse(readFileSync(new globalThis.URL('../manifest.webmanifest', import.meta.url), 'utf8')); // (URL above is the page address)
 const iconSizes = await Promise.all(man.icons.map(async i => { const r = await page.request.get(URL + i.src); const b = await r.body(); return [i.sizes, r.status(), b.readUInt32BE(16) + 'x' + b.readUInt32BE(20)]; }));
 check('manifest icons exist with the declared sizes', iconSizes.every(([s, code, real]) => code === 200 && s === real), JSON.stringify(iconSizes));
 const sw = await page.request.get(URL + 'sw.js'); const swText = await sw.text();
@@ -96,7 +96,7 @@ check('every file the offline cache needs exists', missing.length === 0, missing
 check('no page errors overall', errors.filter(e => !/Failed to load resource|net::/.test(e)).length === 0, errors.slice(0, 4).join(' | '));
 // without JavaScript: all content still readable
 await app.close();
-const app2 = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox', '--user-data-dir=' + T + 'nojs-' + Date.now()] }); // clean profile: no offline cache serving scripts
+const app2 = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox', '--disable-gpu', '--user-data-dir=' + T + 'nojs-' + Date.now()] }); // clean profile: no offline cache serving scripts
 const p2 = await app2.firstWindow();
 await p2.context().route(/\.js(\?|$)/, r => r.abort());
 await p2.goto(URL); await p2.waitForTimeout(800);

@@ -4,7 +4,7 @@ const T = process.env.CLAUDE_JOB_DIR + '/tmp/';
 const URL = 'http://127.0.0.1:8766/';
 const results = []; let failed = 0;
 const check = (n, ok, d = '') => { results.push(`${ok ? 'ok  ' : 'FAIL'} ${n}${d ? ` — ${d}` : ''}`); if (!ok) failed++; };
-const app = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox'] });
+const app = await electron.launch({ executablePath: process.env.ELECTRON, args: [T + 'blank.cjs', '--no-sandbox', '--disable-gpu'] });
 const page = await app.firstWindow();
 const errors = []; page.on('pageerror', e => errors.push(e.message)); page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
 page.on('requestfailed', r => errors.push('failed ' + r.url()));
@@ -30,7 +30,10 @@ check('every in-page link has its section', anchors.every(a => a[2]), JSON.strin
 // clicking each nav link scrolls to the section
 for (const [text, href] of anchors.filter(a => a[1] !== '#top')) {
   await page.goto(URL); await page.click(`.links a[href="${href}"]`, { timeout: 2000 }).catch(() => page.click(`a[href="${href}"]`));
-  await page.waitForTimeout(900);
+  await page.evaluate(async () => { // until smooth scrolling has started and stopped (a longer page takes longer)
+    await new Promise(r => setTimeout(r, 300));
+    for (let i = 0; i < 40; i++) { const y = scrollY; await new Promise(r => setTimeout(r, 120)); if (scrollY === y) break; }
+  });
   const top = await page.evaluate(h => Math.round(document.querySelector(h).getBoundingClientRect().top), href);
   check(`click "${text}" scrolls to ${href}`, top >= -5 && top < 160, `section top ${top}px`);
 }
